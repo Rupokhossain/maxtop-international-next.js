@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import {
   MapPin,
   Mail,
@@ -10,14 +11,32 @@ import {
   Menu,
   X,
   FileText,
-  ChevronDown,
   ArrowRight,
 } from "lucide-react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [productDropdownOpen, setProductDropdownOpen] = useState(false);
   const [useFallbackLogo, setUseFallbackLogo] = useState(false);
+  
+  // বর্তমান পেজের পাথ শনাক্ত করতে usePathname ব্যবহার
+  const pathname = usePathname();
+
+  // ৫টি মূল নেভিগেশন মেনু
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Products", href: "/products" },
+    { name: "Services", href: "/services" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
+  // মেনু একটিভ কি না তা চেক করার ফাংশন
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-200">
@@ -31,7 +50,7 @@ export default function Navbar() {
             </span>
             <span className="hidden md:flex items-center gap-1.5 text-slate-300">
               <Mail className="w-3.5 h-3.5 text-emerald-400" />
-              <span>rfq@maxtopinternational.com</span>
+              <span>sourcing@maxtopintl.com</span>
             </span>
           </div>
 
@@ -54,10 +73,6 @@ export default function Navbar() {
           {/* MAXTOP INTERNATIONAL BRAND LOGO */}
           <Link href="/" className="flex items-center group py-1">
             {!useFallbackLogo ? (
-              /* 
-                ১. h-14 sm:h-16 এবং overflow-hidden: ইমেজকে হেডারের ভেতরেই লক রাখে (ডার্ক বারে সাদা ছড়াবে না)
-                ২. ইমেজে h-20 sm:h-24 এবং -my-3.5 -ml-2: চারপাশের খালি সাদা বর্ডার কেটে লোগোকে অনেক বড় ও স্পষ্ট করে
-              */
               <div className="relative flex items-center h-14 sm:h-16 w-auto max-w-[260px] sm:max-w-[320px] overflow-hidden">
                 <Image
                   src="/images/maxtop-logo.png"
@@ -97,105 +112,35 @@ export default function Navbar() {
             )}
           </Link>
 
-          {/* DESKTOP NAVIGATION LINKS (Contact Us সহ পূর্ণাঙ্গ মেনু) */}
-          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7 text-sm font-semibold text-slate-700">
-            <Link href="/" className="hover:text-emerald-600 transition">
-              Home
-            </Link>
-
-            <Link href="#about" className="hover:text-emerald-600 transition">
-              About Us
-            </Link>
-
-            {/* Product Range Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setProductDropdownOpen(true)}
-              onMouseLeave={() => setProductDropdownOpen(false)}
-            >
-              <Link
-                href="#products"
-                className="flex items-center gap-1 hover:text-emerald-600 transition py-2"
-              >
-                <span>Products</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform" />
-              </Link>
-
-              {productDropdownOpen && (
-                <div className="absolute top-full left-0 w-60 bg-white border border-slate-100 rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <Link
-                    href="#products"
-                    className="flex flex-col px-4 py-2.5 hover:bg-emerald-50/70 transition group"
-                  >
-                    <span className="text-xs font-bold text-slate-800 group-hover:text-emerald-700">
-                      Knitwear Collection
-                    </span>
-                    <span className="text-[11px] text-slate-500">
-                      T-Shirts, Polos, Hoodies &amp; Fleece
-                    </span>
-                  </Link>
-
-                  <Link
-                    href="#products"
-                    className="flex flex-col px-4 py-2.5 hover:bg-emerald-50/70 transition group"
-                  >
-                    <span className="text-xs font-bold text-slate-800 group-hover:text-emerald-700">
-                      Woven &amp; Casual Shirts
-                    </span>
-                    <span className="text-[11px] text-slate-500">
-                      Formal, Oxford &amp; Linen Blends
-                    </span>
-                  </Link>
-
-                  <Link
-                    href="#products"
-                    className="flex flex-col px-4 py-2.5 hover:bg-emerald-50/70 transition group"
-                  >
-                    <span className="text-xs font-bold text-slate-800 group-hover:text-emerald-700">
-                      Denim &amp; Bottoms
-                    </span>
-                    <span className="text-[11px] text-slate-500">
-                      Rigid, Stretch, Chinos &amp; Cargo
-                    </span>
-                  </Link>
-
-                  <Link
-                    href="#products"
-                    className="flex flex-col px-4 py-2.5 hover:bg-emerald-50/70 transition group"
-                  >
-                    <span className="text-xs font-bold text-slate-800 group-hover:text-emerald-700">
-                      Activewear &amp; Outerwear
-                    </span>
-                    <span className="text-[11px] text-slate-500">
-                      Performance quick-dry &amp; jackets
-                    </span>
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <Link href="#services" className="hover:text-emerald-600 transition">
-              Services
-            </Link>
-
-            <Link href="#gallery" className="hover:text-emerald-600 transition">
-              Factory Gallery
-            </Link>
-
-            <Link href="#sustainability" className="hover:text-emerald-600 transition">
-              Sustainability
-            </Link>
-
-            <Link href="#contact" className="hover:text-emerald-600 transition">
-              Contact Us
-            </Link>
+          {/* DESKTOP NAVIGATION LINKS (Active State সহ ৫টি মেনু) */}
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative py-2 font-semibold transition-colors duration-200 ${
+                    active
+                      ? "text-emerald-600 font-bold"
+                      : "text-slate-700 hover:text-emerald-600"
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  {/* একটিভ মেনুর নিচে প্রিমিয়াম সবুজ আন্ডারলাইন ইন্ডিকেটর */}
+                  {active && (
+                    <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-emerald-600 rounded-full animate-in fade-in duration-300" />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* RIGHT ACTION BUTTON */}
+          {/* RIGHT ACTION BUTTON (সরাসরি /contact পেজে লিংক করা) */}
           <div className="hidden sm:flex items-center space-x-3">
             <Link
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-[#0C2340] hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-all shadow-md shadow-[#0C2340]/15"
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#0C2340] hover:bg-emerald-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-md shadow-[#0C2340]/15 hover:scale-105"
             >
               <FileText className="w-3.5 h-3.5 text-emerald-400" />
               <span>Request Quote (RFQ)</span>
@@ -207,10 +152,14 @@ export default function Navbar() {
           <div className="flex lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-700 hover:text-emerald-600 p-2"
+              className="text-slate-700 hover:text-emerald-600 p-2 focus:outline-none"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -218,62 +167,30 @@ export default function Navbar() {
 
       {/* ── ৩. MOBILE SLIDE-DOWN MENU ── */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-5 pt-3 pb-6 space-y-3">
-          <Link
-            href="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 hover:text-emerald-600"
-          >
-            Home
-          </Link>
-          <Link
-            href="#about"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 hover:text-emerald-600"
-          >
-            About Us
-          </Link>
-          <Link
-            href="#products"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 hover:text-emerald-600"
-          >
-            Products Collection
-          </Link>
-          <Link
-            href="#services"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 hover:text-emerald-600"
-          >
-            Services &amp; QA
-          </Link>
-          <Link
-            href="#gallery"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 hover:text-emerald-600"
-          >
-            Factory Floor Gallery
-          </Link>
-          <Link
-            href="#sustainability"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 hover:text-emerald-600"
-          >
-            Sustainability
-          </Link>
-          <Link
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 hover:text-emerald-600"
-          >
-            Contact Us
-          </Link>
+        <div className="lg:hidden border-t border-slate-200 bg-white px-5 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-2 duration-200">
+          {navLinks.map((link) => {
+            const active = isActive(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3.5 py-2.5 rounded-xl text-sm transition-all ${
+                  active
+                    ? "bg-emerald-50 text-emerald-700 font-bold border-l-4 border-emerald-600"
+                    : "text-slate-700 font-semibold hover:bg-slate-50 hover:text-emerald-600"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
 
           <div className="pt-3">
             <Link
-              href="#contact"
+              href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 bg-[#0C2340] text-white text-xs font-bold py-3 rounded-lg shadow"
+              className="w-full flex items-center justify-center gap-2 bg-[#0C2340] text-white text-xs font-bold py-3 rounded-xl shadow transition hover:bg-emerald-600"
             >
               <FileText className="w-4 h-4 text-emerald-400" />
               <span>Submit RFQ / Tech-Pack</span>

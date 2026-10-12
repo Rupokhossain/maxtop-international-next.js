@@ -1,3 +1,5 @@
+// src/data/products.ts
+
 export interface ProductCategory {
   id: string;
   name: string;
@@ -17,9 +19,10 @@ export interface ProductItem {
   gsm: string;
   moq: string;
   image: string;
+  isFeatured?: boolean; // হোমপেজে শো করানোর জন্য অপশনাল
 }
 
-// ── ১. ১২টি ক্যাটাগরির ১০০% ম্যাচিং গার্মেন্টস র্যাক ফটো (কোনো ভুল ছবি নেই) ──
+// ── ১. ১২টি ক্যাটাগরির ১০০% ম্যাচিং গার্মেন্টস র্যাক ফটো ──
 export const productCategories: ProductCategory[] = [
   {
     id: "knit",
@@ -119,7 +122,7 @@ export const productCategories: ProductCategory[] = [
   },
 ];
 
-// ── ২. ১২টি ক্যাটাগরির প্রতিটির রিয়েল প্রোডাক্ট ক্যাটালগ (যাতে ক্লিকে সব দেখা যায়) ──
+// ── ২. ১২টি ক্যাটাগরির প্রতিটির রিয়েল প্রোডাক্ট ক্যাটালগ ──
 export const allProductsCatalog: ProductItem[] = [
   // 1. KNIT
   {
@@ -132,6 +135,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "320 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 102,
@@ -143,6 +147,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "180 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 103,
@@ -154,6 +159,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "220 GSM",
     moq: "600 Pcs",
     image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 104,
@@ -165,6 +171,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "160 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 2. WOVEN
@@ -178,6 +185,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "160 GSM",
     moq: "600 Pcs",
     image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 202,
@@ -189,6 +197,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "140 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 203,
@@ -200,6 +209,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "260 GSM",
     moq: "800 Pcs",
     image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 204,
@@ -211,6 +221,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "180 GSM",
     moq: "600 Pcs",
     image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 3. DENIM
@@ -224,6 +235,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "13.5 oz / 380 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 302,
@@ -235,6 +247,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "10.5 oz / 300 GSM",
     moq: "800 Pcs",
     image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 303,
@@ -246,6 +259,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "12.5 oz / 350 GSM",
     moq: "800 Pcs",
     image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 304,
@@ -257,6 +271,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "9.5 oz / 270 GSM",
     moq: "600 Pcs",
     image: "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 4. SWEATER
@@ -270,6 +285,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "420 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1578768079052-aa76e520028b?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 402,
@@ -281,6 +297,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "340 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 403,
@@ -292,6 +309,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "300 GSM",
     moq: "600 Pcs",
     image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 5. OUTERWEAR
@@ -305,6 +323,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "380 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 502,
@@ -316,6 +335,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "320 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 503,
@@ -327,6 +347,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "280 GSM",
     moq: "600 Pcs",
     image: "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 6. WORKWEAR
@@ -340,6 +361,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "320 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 602,
@@ -351,6 +373,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "280 GSM",
     moq: "800 Pcs",
     image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 603,
@@ -362,6 +385,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "260 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 7. ACTIVEWEAR
@@ -375,6 +399,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "260 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
   {
     id: 702,
@@ -386,6 +411,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "240 GSM",
     moq: "600 Pcs",
     image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 703,
@@ -397,6 +423,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "150 GSM",
     moq: "800 Pcs",
     image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80",
+    isFeatured: true,
   },
 
   // 8. SPORTSWEAR
@@ -410,6 +437,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "160 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 802,
@@ -421,6 +449,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "220 GSM",
     moq: "600 Pcs",
     image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 9. RAINWEAR
@@ -434,6 +463,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "280 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 902,
@@ -445,6 +475,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "240 GSM",
     moq: "600 Pcs",
     image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 10. LINGERIE
@@ -458,6 +489,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "19 Momme",
     moq: "300 Pcs",
     image: "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 1002,
@@ -469,6 +501,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "180 GSM",
     moq: "800 Pcs",
     image: "https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 11. BAGGAGE
@@ -482,6 +515,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "3.2 KG Empty",
     moq: "300 Pcs",
     image: "https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 1102,
@@ -493,6 +527,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "450 GSM",
     moq: "400 Pcs",
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 
   // 12. HANDICRAFT
@@ -506,6 +541,7 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "380 GSM",
     moq: "500 Pcs",
     image: "https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
   {
     id: 1202,
@@ -517,5 +553,6 @@ export const allProductsCatalog: ProductItem[] = [
     gsm: "Handmade",
     moq: "400 Pcs",
     image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80",
+    isFeatured: false,
   },
 ];
