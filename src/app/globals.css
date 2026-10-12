@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
+/* ══════════════════════════════════════════════════════════════
+   MAXTOP INTERNATIONAL — CENTRAL BRAND COLOR VARIABLES
+   (পরবর্তীতে ক্লায়েন্ট কোনো হেক্স কোড দিলে শুধু এখানে পরিবর্তন করবেন)
+══════════════════════════════════════════════════════════════ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* প্রধান ব্র্যান্ড কালার (ডিপ কর্পোরেট নেভি) */
+  --brand-primary: #0B2B43;
+  --brand-primary-dark: #071D2E;
+  
+  /* অ্যাকসেন্ট কালার (গ্রিন ফ্যাক্টরি / এমারেল্ড) */
+  --brand-accent: #059669;
+  --brand-accent-hover: #047857;
+
+  /* প্রিমিয়াম ওয়ার্ম হাইলাইট (গোল্ড / অ্যাম্বার) */
+  --brand-gold: #D97706;
+
+  /* ব্যাকগ্রাউন্ড ও সারফেস */
+  --bg-page: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --border-color: #E2E8F0;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── TAILWIND V4 THEME MAPPING ── */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+
+  --color-primary: var(--brand-primary);
+  --color-primary-dark: var(--brand-primary-dark);
+  --color-accent: var(--brand-accent);
+  --color-accent-hover: var(--brand-accent-hover);
+  --color-gold: var(--brand-gold);
+  --color-page: var(--bg-page);
+  --color-card: var(--bg-card);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── BASE STYLING ── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* টেক্সট সিলেক্ট করলে অ্যাকসেন্ট কালার */
+::selection {
+  background-color: var(--brand-accent);
+  color: #ffffff;
+}
+
+/* স্ক্রোলবার */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ফ্রস্টেড গ্লাস ইফেক্ট */
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
