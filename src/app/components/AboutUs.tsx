@@ -72,7 +72,7 @@ const spinningProducts = [
 
 export default function AboutUs() {
   return (
-    <section id="about" className="py-14 sm:py-20 lg:py-28 bg-white border-b border-slate-200 overflow-x-hidden">
+    <section id="about" className="py-14 sm:py-20 lg:py-28 bg-[#F8FAFC] border-b border-slate-200 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 sm:space-y-20 lg:space-y-24">
         
         {/* ══════════════════════════════════════════════════════════════════

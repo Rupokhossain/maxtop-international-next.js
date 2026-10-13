@@ -29,7 +29,7 @@ export default function SourcingFaq() {
         );
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-white border-b border-slate-200">
+    <section id="faq" className="py-20 lg:py-28 bg-[#F8FAFC] border-b border-slate-200">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* ── ১. হেডার ── */}

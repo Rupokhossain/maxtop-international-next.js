@@ -63,11 +63,18 @@ export default function Products() {
         {!selectedCategory ? (
           <div>
             <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-3">
-              <div className="inline-block border border-slate-300 bg-white px-4 py-1.5 rounded shadow-xs">
-                <h2 className="text-xl sm:text-2xl font-black tracking-tight text-[#0C2340] uppercase">
+          <div className="flex items-center justify-center mb-14">
+            <div className="relative flex items-center justify-center w-full max-w-xl">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-slate-300" />
+              </div>
+              <div className="relative px-8 py-3 bg-white border border-slate-300 rounded-lg shadow-sm">
+                <h2 className="text-2xl sm:text-3xl font-black text-[#0B2B43] tracking-tight">
                   Our Products
                 </h2>
               </div>
+            </div>
+          </div>
               <p className="text-xs sm:text-sm text-slate-500">
                 Explore our full-package manufacturing categories. Click any category to view tailored specs, fabrics, and sample options.
               </p>

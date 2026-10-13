@@ -17,14 +17,14 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero></Hero>
+      <StatsBanner/>
       <AboutUs/>
       <Products/>
       <Services/>
       <HowWeWork/>
       <WhyChooseUs/>
       <Recognitions/>
-      <StatsBanner/>
-      <Gallery/>
+      {/* <Gallery/> */}
       <SourcingFaq/>
       <ContactRfq/>
       <Footer/>
