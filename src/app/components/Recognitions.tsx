@@ -32,7 +32,7 @@ export default function Recognitions() {
   return (
     <section
       id="certifications"
-      className="py-16 lg:py-24 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden w-full"
+      className="py-12 bg-[#F8FAFC] border-slate-200 overflow-hidden w-full"
     >
       <div className="w-full space-y-16">
         

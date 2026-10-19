@@ -49,7 +49,7 @@ export default function HowWeWork() {
   };
 
   return (
-    <section id="process" className="py-20 lg:py-28 bg-[#F8FAFC] border-b border-slate-200">
+    <section id="process" className="py-12 bg-[#F8FAFC] border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">

@@ -6,7 +6,7 @@ import { servicesData, sourcingStepsData } from "@/data/servicesData";
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28 bg-[#F8FAFC] border-b border-slate-200">
+    <section id="services" className="py-12 bg-[#F8FAFC] border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ── ১. সেকশন হেডার ── */}
