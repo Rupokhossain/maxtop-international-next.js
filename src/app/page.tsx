@@ -17,7 +17,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero></Hero>
-      <StatsBanner/>
+      {/* <StatsBanner/> */}
       <AboutUs/>
       <Products/>
       <Services/>
@@ -26,7 +26,7 @@ export default function Home() {
       <Recognitions/>
       {/* <Gallery/> */}
       <SourcingFaq/>
-      <ContactRfq/>
+      {/* <ContactRfq/> */}
       <Footer/>
     </main>
   );

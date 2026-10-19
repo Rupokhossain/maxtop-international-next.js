@@ -19,7 +19,9 @@ export interface ProductItem {
   gsm: string;
   moq: string;
   image: string;
-  isFeatured?: boolean; // হোমপেজে শো করানোর জন্য অপশনাল
+  colors: string[]; // হেক্স কালার কোড (যেমন: Black, Navy, White, Olive)
+  sizes: string[];  // সাইজ চিপস (যেমন: S, M, L, XL, 2XL)
+  isFeatured?: boolean;
 }
 
 // ── ১. ১২টি ক্যাটাগরির ১০০% ম্যাচিং গার্মেন্টস র্যাক ফটো ──
@@ -122,7 +124,7 @@ export const productCategories: ProductCategory[] = [
   },
 ];
 
-// ── ২. ১২টি ক্যাটাগরির প্রতিটির রিয়েল প্রোডাক্ট ক্যাটালগ ──
+// ── ২. ১২টি ক্যাটাগরির রিয়েল প্রোডাক্ট ক্যাটালগ (Colors, Sizes, GSM সহ) ──
 export const allProductsCatalog: ProductItem[] = [
   // 1. KNIT
   {
@@ -134,7 +136,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "65% Cotton / 35% Polyester Terry",
     gsm: "320 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=800&q=80",
+    colors: ["#1E293B", "#334155", "#64748B", "#0F172A"],
+    sizes: ["S", "M", "L", "XL", "2XL"],
     isFeatured: true,
   },
   {
@@ -146,7 +150,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Combed Cotton Single Jersey",
     gsm: "180 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FFFFFF", "#0F172A", "#F43F5E", "#E2E8F0"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     isFeatured: true,
   },
   {
@@ -158,19 +164,23 @@ export const allProductsCatalog: ProductItem[] = [
     material: "95% Cotton / 5% Spandex Piqué",
     gsm: "220 GSM",
     moq: "600 Pcs",
-    image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FFFFFF", "#0B2B43", "#059669", "#DC2626", "#0F172A"],
+    sizes: ["S", "M", "L", "XL", "2XL", "3XL"],
     isFeatured: true,
   },
   {
     id: 104,
     categoryId: "knit",
     audience: "kids",
-    name: "Kid's Soft Organic Tee",
+    name: "Kid's Soft Organic Crewneck Tee",
     desc: "Ultra-soft non-toxic dyed kids crewneck t-shirt",
     material: "100% GOTS Certified Cotton",
     gsm: "160 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80",
+    colors: ["#38BDF8", "#F472B6", "#FBBF24", "#34D399", "#FFFFFF"],
+    sizes: ["2Y", "4Y", "6Y", "8Y", "10Y"],
     isFeatured: false,
   },
 
@@ -184,7 +194,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Combed Compact Cotton",
     gsm: "160 GSM",
     moq: "600 Pcs",
-    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FFFFFF", "#93C5FD", "#FDBA74", "#CBD5E1"],
+    sizes: ["S", "M", "L", "XL", "2XL"],
     isFeatured: true,
   },
   {
@@ -196,7 +208,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Pure Washed Linen",
     gsm: "140 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FEF3C7", "#FFFFFF", "#A7F3D0", "#E2E8F0"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     isFeatured: false,
   },
   {
@@ -208,7 +222,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "98% Cotton / 2% Elastane Twill",
     gsm: "260 GSM",
     moq: "800 Pcs",
-    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80",
+    colors: ["#D97706", "#1E293B", "#475569", "#78716C"],
+    sizes: ["30", "32", "34", "36", "38"],
     isFeatured: true,
   },
   {
@@ -220,7 +236,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Brushed Cotton Flannel",
     gsm: "180 GSM",
     moq: "600 Pcs",
-    image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=800&q=80",
+    colors: ["#DC2626", "#2563EB", "#059669"],
+    sizes: ["4Y", "6Y", "8Y", "10Y", "12Y"],
     isFeatured: false,
   },
 
@@ -234,7 +252,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Rigid Indigo Cotton",
     gsm: "13.5 oz / 380 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=80",
+    colors: ["#1E3A8A", "#172554", "#475569"],
+    sizes: ["S", "M", "L", "XL", "2XL"],
     isFeatured: true,
   },
   {
@@ -246,7 +266,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "92% Cotton / 6% Poly / 2% Spandex",
     gsm: "10.5 oz / 300 GSM",
     moq: "800 Pcs",
-    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
+    colors: ["#1E3A8A", "#0F172A", "#64748B"],
+    sizes: ["26", "28", "30", "32", "34"],
     isFeatured: false,
   },
   {
@@ -258,7 +280,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "99% Cotton / 1% Lycra Comfort",
     gsm: "12.5 oz / 350 GSM",
     moq: "800 Pcs",
-    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80",
+    colors: ["#1E40AF", "#1E293B", "#94A3B8"],
+    sizes: ["30", "32", "34", "36", "38"],
     isFeatured: true,
   },
   {
@@ -270,7 +294,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "98% Cotton / 2% Elastane",
     gsm: "9.5 oz / 270 GSM",
     moq: "600 Pcs",
-    image: "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=800&q=80",
+    colors: ["#2563EB", "#1E3A8A"],
+    sizes: ["4Y", "6Y", "8Y", "10Y"],
     isFeatured: false,
   },
 
@@ -284,7 +310,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "70% Lambswool / 30% Polyamide",
     gsm: "420 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1578768079052-aa76e520028b?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1578768079052-aa76e520028b?auto=format&fit=crop&w=800&q=80",
+    colors: ["#D97706", "#1E293B", "#E2E8F0", "#78716C"],
+    sizes: ["S", "M", "L", "XL", "2XL"],
     isFeatured: true,
   },
   {
@@ -296,7 +324,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "60% Cotton / 40% Acrylic Cashmere Feel",
     gsm: "340 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=80",
+    colors: ["#F59E0B", "#FEF3C7", "#94A3B8", "#1E293B"],
+    sizes: ["XS", "S", "M", "L"],
     isFeatured: false,
   },
   {
@@ -308,7 +338,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Organic Cotton Knit",
     gsm: "300 GSM",
     moq: "600 Pcs",
-    image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=800&q=80",
+    colors: ["#2563EB", "#DC2626", "#FBBF24"],
+    sizes: ["4Y", "6Y", "8Y", "10Y"],
     isFeatured: false,
   },
 
@@ -322,7 +354,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Recycled Nylon Shell / Polyfill",
     gsm: "380 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+    colors: ["#0F172A", "#1E3A8A", "#065F46", "#B91C1C"],
+    sizes: ["S", "M", "L", "XL", "2XL"],
     isFeatured: true,
   },
   {
@@ -334,7 +368,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Polyester Taffeta",
     gsm: "320 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
+    colors: ["#F43F5E", "#FFFFFF", "#0F172A", "#D97706"],
+    sizes: ["XS", "S", "M", "L"],
     isFeatured: false,
   },
   {
@@ -346,7 +382,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "Water-Resistant Microfiber",
     gsm: "280 GSM",
     moq: "600 Pcs",
-    image: "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=800&q=80",
+    colors: ["#2563EB", "#DC2626", "#059669"],
+    sizes: ["4Y", "6Y", "8Y", "10Y"],
     isFeatured: false,
   },
 
@@ -360,7 +398,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "300D Oxford Polyester PU Coated",
     gsm: "320 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FACC15", "#FB923C"],
+    sizes: ["S", "M", "L", "XL", "2XL", "3XL"],
     isFeatured: false,
   },
   {
@@ -372,7 +412,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "65% Poly / 35% Cotton Ripstop",
     gsm: "280 GSM",
     moq: "800 Pcs",
-    image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=80",
+    colors: ["#1E293B", "#334155", "#78716C"],
+    sizes: ["30", "32", "34", "36", "38", "40"],
     isFeatured: false,
   },
   {
@@ -384,7 +426,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Cotton Heavy Drill",
     gsm: "260 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
+    colors: ["#0F172A", "#1E3A8A", "#78716C"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     isFeatured: false,
   },
 
@@ -398,7 +442,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "75% Nylon / 25% Spandex Interlock",
     gsm: "260 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&w=800&q=80",
+    colors: ["#0F172A", "#475569", "#7C3AED", "#059669"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     isFeatured: true,
   },
   {
@@ -410,7 +456,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "80% Poly / 20% Elastane Dry-Fit",
     gsm: "240 GSM",
     moq: "600 Pcs",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
+    colors: ["#F43F5E", "#0F172A", "#FFFFFF", "#38BDF8"],
+    sizes: ["XS", "S", "M", "L"],
     isFeatured: false,
   },
   {
@@ -422,7 +470,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Recycled Polyester (GRS)",
     gsm: "150 GSM",
     moq: "800 Pcs",
-    image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+    colors: ["#0F172A", "#334155", "#059669", "#38BDF8"],
+    sizes: ["S", "M", "L", "XL", "2XL"],
     isFeatured: true,
   },
 
@@ -436,7 +486,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Poly Birdseye Mesh",
     gsm: "160 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+    colors: ["#DC2626", "#2563EB", "#FFFFFF", "#0F172A"],
+    sizes: ["S", "M", "L", "XL", "2XL"],
     isFeatured: false,
   },
   {
@@ -448,7 +500,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Tricot Polyester",
     gsm: "220 GSM",
     moq: "600 Pcs",
-    image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80",
+    colors: ["#1E3A8A", "#0F172A", "#DC2626"],
+    sizes: ["6Y", "8Y", "10Y", "12Y"],
     isFeatured: false,
   },
 
@@ -462,7 +516,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Polyurethane Coated Polyester",
     gsm: "280 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FACC15", "#0F172A", "#065F46"],
+    sizes: ["S", "M", "L", "XL", "2XL"],
     isFeatured: false,
   },
   {
@@ -474,7 +530,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "Eco PU Waterproof Shell",
     gsm: "240 GSM",
     moq: "600 Pcs",
-    image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FACC15", "#F43F5E", "#38BDF8"],
+    sizes: ["2Y", "4Y", "6Y", "8Y"],
     isFeatured: false,
   },
 
@@ -488,7 +546,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Grade 6A Mulberry Silk",
     gsm: "19 Momme",
     moq: "300 Pcs",
-    image: "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FBCFE8", "#FFFFFF", "#0F172A", "#93C5FD"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     isFeatured: false,
   },
   {
@@ -500,7 +560,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "95% Organic Cotton / 5% Elastane",
     gsm: "180 GSM",
     moq: "800 Pcs",
-    image: "https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FDE68A", "#FFFFFF", "#0F172A", "#CBD5E1"],
+    sizes: ["XS", "S", "M", "L"],
     isFeatured: false,
   },
 
@@ -514,7 +576,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Bayer Makrolon Polycarbonate",
     gsm: "3.2 KG Empty",
     moq: "300 Pcs",
-    image: "https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&w=800&q=80",
+    colors: ["#0F172A", "#475569", "#D97706"],
+    sizes: ["20 Inch", "24 Inch", "28 Inch"],
     isFeatured: false,
   },
   {
@@ -526,7 +590,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "16 oz Water-Resistant Waxed Canvas",
     gsm: "450 GSM",
     moq: "400 Pcs",
-    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+    colors: ["#78716C", "#1E293B", "#065F46"],
+    sizes: ["45 Liters", "55 Liters"],
     isFeatured: false,
   },
 
@@ -540,7 +606,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "Natural Bangladeshi Raw Jute",
     gsm: "380 GSM",
     moq: "500 Pcs",
-    image: "https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&w=800&q=80",
+    colors: ["#D97706", "#78716C", "#FEF3C7"],
+    sizes: ["Standard", "Large"],
     isFeatured: false,
   },
   {
@@ -552,7 +620,9 @@ export const allProductsCatalog: ProductItem[] = [
     material: "100% Natural Seagrass & Cotton Cord",
     gsm: "Handmade",
     moq: "400 Pcs",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80",
+    colors: ["#FEF3C7", "#D97706"],
+    sizes: ["Medium", "Large"],
     isFeatured: false,
   },
 ];
